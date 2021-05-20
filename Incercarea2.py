@@ -1,15 +1,15 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-ksize = 50  # Use size that makes sense to the image and fetaure size. Large may not be good.
-# On the synthetic image it is clear how ksize affects imgae (try 5 and 50)
-sigma_i = [10, 30, 45] # Large sigma on small features will fully miss the features.
-theta_i = [1/4.*np.pi,2/4.*np.pi,3/4*np.pi, 4/4.*np.pi]  # /4 shows horizontal 3/4 shows other horizontal.
-lamda_i = [30,60,100 ]# 1/4 works best for angled.
-gamma = 0.4  # Value of 1 defines spherical. Calue close to 0 has high aspect ratio
-# Value of 1, spherical may not be ideal as it picks up features from other regions.
+
+ksize = 101  # size of the Gabor kernel
+sigma_i = [10, 30, 45] # sigma_i = [10, 30, 45]
+theta_i = [1/4.*np.pi,2/4.*np.pi,3/4*np.pi, 4/4.*np.pi]  #orientation of the Gabor function.
+lamda_i = [10,60,100 ]#  width of the strips of Gabor function
+gamma = 0.4  # gamma controls the height of the Gabor function
 phi = 0  # Phase offset.
 
+# pregatire bank kernels
 kernels = []
 gaborParams = []
 
@@ -31,6 +31,7 @@ for kernel in kernels:
 
 #Afisare imagine originala:
 plt.figure()
+plt.axis('off')
 plt.imshow(img, cmap='gray')
 plt.title('Imagine originala')
 
@@ -40,8 +41,8 @@ n = len(kernels)
 for i in range(1, n):
     plt.subplot(6,6,i)
     plt.axis('off')
-    plt.imshow(kernels[i])
-    plt.text(-45,40,gaborParams[i], fontsize=8)
+    plt.imshow(kernels[i], cmap='gray')
+    #plt.text(-450,400,gaborParams[i], fontsize=8)
 
 #Afisare imagini filtrate:
 plt.figure()
@@ -49,6 +50,6 @@ n = len(kernels)
 for i in range(1, n):
     plt.subplot(6,6,i)
     plt.axis('off')
-    plt.imshow(imagini_filtrate[i])
+    plt.imshow(imagini_filtrate[i], cmap='gray')
 
 plt.show()
