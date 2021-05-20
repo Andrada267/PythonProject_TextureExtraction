@@ -24,6 +24,11 @@ for sigma in sigma_i:
 img = cv2.imread('images/caramizi.jpg')  # import image
 img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
+imagini_filtrate = []
+for kernel in kernels:
+    fimg= cv2.filter2D(img, cv2.CV_8UC3, kernel)  # imagine filtrata
+    imagini_filtrate.append(fimg)
+
 img = cv2.imread('images/sandstone.tif')#import image
 kernel = cv2.getGaborKernel((ksize, ksize), sigma, theta, lamda, gamma, phi, ktype=cv2.CV_32F)
 img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
