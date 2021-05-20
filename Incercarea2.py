@@ -43,4 +43,12 @@ for i in range(1, n):
     plt.imshow(kernels[i])
     plt.text(-45,40,gaborParams[i], fontsize=8)
 
+#Afisare imagini filtrate:
+plt.figure()
+n = len(kernels)
+for i in range(1, n):
+    plt.subplot(6,6,i)
+    plt.axis('off')
+    plt.imshow(imagini_filtrate[i])
+
 plt.show()
