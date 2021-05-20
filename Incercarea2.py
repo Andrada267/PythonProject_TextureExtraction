@@ -10,6 +10,12 @@ gamma = 0.4  # Value of 1 defines spherical. Calue close to 0 has high aspect ra
 # Value of 1, spherical may not be ideal as it picks up features from other regions.
 phi = 0  # Phase offset.
 
+for sigma in sigma_i:
+   for lamda in lamda_i:
+      for theta in theta_i:
+          kernel = cv2.getGaborKernel((ksize, ksize), sigma, theta, lamda, gamma, phi, ktype=cv2.CV_32F)
+          kernels.append(kernel)
+
 img = cv2.imread('images/sandstone.tif')#import image
 kernel = cv2.getGaborKernel((ksize, ksize), sigma, theta, lamda, gamma, phi, ktype=cv2.CV_32F)
 img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
