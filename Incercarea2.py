@@ -21,6 +21,9 @@ for sigma in sigma_i:
           kernels.append(kernel)
           gaborParams.append(gaborParam)
 
+img = cv2.imread('images/caramizi.jpg')  # import image
+img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
 img = cv2.imread('images/sandstone.tif')#import image
 kernel = cv2.getGaborKernel((ksize, ksize), sigma, theta, lamda, gamma, phi, ktype=cv2.CV_32F)
 img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
