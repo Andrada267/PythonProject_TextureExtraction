@@ -9,7 +9,7 @@ lamda_i = [10,60,100 ]#  width of the strips of Gabor function
 gamma = 0.4  # gamma controls the height of the Gabor function
 phi = 0  # Phase offset.
 
-# pregatire bank kernels
+# pregatire bank kernels:
 kernels = []
 gaborParams = []
 
