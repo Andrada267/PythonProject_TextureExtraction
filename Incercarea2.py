@@ -1,11 +1,11 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-ksize = 5  # Use size that makes sense to the image and fetaure size. Large may not be good.
+ksize = 50  # Use size that makes sense to the image and fetaure size. Large may not be good.
 # On the synthetic image it is clear how ksize affects imgae (try 5 and 50)
-sigma = 3  # Large sigma on small features will fully miss the features.
-theta = 1 * np.pi / 4  # /4 shows horizontal 3/4 shows other horizontal.
-lamda = 1 * np.pi / 4  # 1/4 works best for angled.
+sigma_i = [10, 30, 45] # Large sigma on small features will fully miss the features.
+theta_i = [1/4.*np.pi,2/4.*np.pi,3/4*np.pi, 4/4.*np.pi]  # /4 shows horizontal 3/4 shows other horizontal.
+lamda_i = [30,60,100 ]# 1/4 works best for angled.
 gamma = 0.4  # Value of 1 defines spherical. Calue close to 0 has high aspect ratio
 # Value of 1, spherical may not be ideal as it picks up features from other regions.
 phi = 0  # Phase offset.
