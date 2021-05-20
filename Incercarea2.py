@@ -29,28 +29,9 @@ for kernel in kernels:
     fimg= cv2.filter2D(img, cv2.CV_8UC3, kernel)  # imagine filtrata
     imagini_filtrate.append(fimg)
 
-img = cv2.imread('images/sandstone.tif')#import image
-kernel = cv2.getGaborKernel((ksize, ksize), sigma, theta, lamda, gamma, phi, ktype=cv2.CV_32F)
-img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-fimg = cv2.filter2D(img, cv2.CV_8UC3, kernel)#imagine filtrata
-kernel_resized = cv2.resize(kernel, (500, 500))  # Resize image
-
-fig = plt.figure(figsize=(12, 12))
-
-ax1 = fig.add_subplot(2,2,1)
-ax1.imshow(img, cmap = 'gray')
-ax1.title.set_text('Original Image')
-
-ax2 = fig.add_subplot(2,2,3)
-ax2.imshow(kernel_resized, cmap = 'gray')
-ax2.title.set_text('Kernal Resized')
-
-ax3= fig.add_subplot(2,2,2)
-ax3.imshow(kernel, cmap = 'gray')
-ax3.title.set_text('Kernal')
-
-ax4 = fig.add_subplot(2,2,4)
-ax4.imshow(fimg, cmap = 'gray')
-ax4.title.set_text('Filtred Image')
+#Afisare imagine originala:
+plt.figure()
+plt.imshow(img, cmap='gray')
+plt.title('Imagine originala')
 
 plt.show()
