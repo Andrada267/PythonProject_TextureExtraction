@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 ksize = 101  # size of the Gabor kernel
-sigma_i = [10, 30, 45] # sigma_i = [10, 30, 45]
+sigma_i = [10, 30, 45] # overall size(more or less strips)
 theta_i = [1/4.*np.pi,2/4.*np.pi,3/4*np.pi, 4/4.*np.pi]  #orientation of the Gabor function.
 lamda_i = [10,60,100 ]#  width of the strips of Gabor function
 gamma = 0.4  # gamma controls the height of the Gabor function
